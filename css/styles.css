@@ -1,0 +1,240 @@
+:root {
+  /* Text */
+  --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --Soft-red: hsl(14, 88%, 65%);
+
+  /* Background gradient: */
+  --Soft-violet: hsl(273, 75%, 66%);
+  --Soft-blue: hsl(240, 73%, 65%);
+
+  /* Text */
+  --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --Dark-grayish-blue: hsl(240, 6%, 50%);
+
+  /* Dividers */
+  --Light-grayish-blue: hsl(240, 5%, 91%);
+}
+
+@font-face {
+  font-family: "KumbhSans Regular";
+  src: url(../asset/fonts/KumbhSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "KumbhSans Bold";
+  src: url(../asset/fonts/KumbhSans-Bold.ttf);
+}
+
+* {
+  font-family: "KumbhSans Regular";
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    14deg,
+    var(--Soft-blue) 0%,
+    var(--Soft-violet) 50%
+  );
+  background-attachment: fixed;
+  position: relative;
+}
+.main {
+  background-color: white;
+  min-height: 30em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 2em;
+  margin: 1em;
+}
+.image {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.image::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url(../asset/images/desktop/bg-pattern-desktop.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -34.4em 60%;
+  position: absolute;
+}
+.image__woman {
+  position: relative;
+  left: -4.5em;
+}
+
+.image__box {
+  position: absolute;
+  top: 42%;
+  left: -10%;
+}
+.accordion {
+  position: relative;
+  width: 50%;
+  max-width: 30em;
+  padding: 3em 0;
+  padding-right: 4.5em;
+}
+.accordion__title {
+  margin-top: 0;
+  font-family: "KumbhSans Bold";
+  color: var(--Very-dark-desaturated-blue);
+}
+
+.accordion__box {
+  border-bottom: 1px solid var(--Light-grayish-blue);
+}
+
+.accordion__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--Very-dark-grayish-blue);
+  margin: 0;
+}
+.accordion__question:hover {
+  color: var(--Soft-red);
+}
+
+.accordion__head--active .accordion__question {
+  font-family: "KumbhSans Bold";
+  color: var(--Very-dark-desaturated-blue);
+  margin-bottom: 0.9em;
+}
+
+.accordion__arrow {
+  transition: transform 0.3s;
+}
+.accordion__head--active .accordion__arrow {
+  transform: rotate(180deg);
+}
+.accordion__answer {
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  color: var(--Very-dark-grayish-blue);
+  font-size: 0.9em;
+  transition: all 0.3s;
+}
+.accordion__head--active + .accordion__answer {
+  height: auto;
+  margin-bottom: 1em;
+}
+
+@media (max-width: 995px) {
+  .main {
+    flex-direction: column;
+    top: 9em;
+    min-height: auto;
+    margin-bottom: 10em;
+    margin-top: 2em;
+  }
+  .image,
+  .accordion {
+    width: 100%;
+  }
+  .image {
+    justify-content: center;
+    overflow: visible;
+  }
+  .image::before {
+    background-image: url(../asset/images/mobile/bg-pattern-mobile.svg);
+    background-size: contain;
+    background-position: 0 bottom;
+    width: 73%;
+    height: 21em;
+  }
+  .image__woman {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 4em;
+    padding-top: 1em;
+  }
+  .image__box {
+    display: none;
+  }
+
+  .accordion {
+    max-width: 25em;
+    padding: 0;
+    margin: 15em 2.5em 2.5em;
+  }
+}
+
+@media (max-width: 520px) {
+  .main {
+    top: 7em;
+  }
+
+  .image::before {
+    height: 16em;
+    width: 68%;
+  }
+
+  .image__woman {
+    padding-top: 2em;
+  }
+
+  .accordion {
+    padding: 0 2em 2em;
+    margin: 12em 0 0;
+  }
+
+  .accordion__title {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 420px) {
+  .main {
+    top: 5.5em;
+    margin-bottom: 7em;
+  }
+
+  .image::before {
+    height: 14em;
+    width: 65%;
+  }
+
+  .image__woman {
+    padding-top: 2em;
+  }
+
+  .accordion {
+    margin: 10em 0 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .main {
+    top: 4em;
+    margin-bottom: 6em;
+  }
+
+  .image::before {
+    height: 12em;
+    width: 62%;
+  }
+
+  .image__woman {
+    padding-top: 2.5em;
+  }
+}
+
+@media (max-width: 420px) {
+  .accordion {
+    margin: 8em 0 0;
+  }
+}
